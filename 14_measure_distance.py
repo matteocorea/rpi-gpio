@@ -16,9 +16,11 @@ def setup():
 def loop():
     global distance_sensor
     while True:
-        print(distance_sensor.measure_distance())
-        # time.sleep(1e-1)
-        time.sleep(1)
+        print('\n' * 30)
+        distance = distance_sensor.measure_distance_cm()
+        print('{:.3f} cm'.format(distance) if
+              distance is not None else 'out of range')
+        time.sleep(0.1)
         pass
 
 def cleanup():
